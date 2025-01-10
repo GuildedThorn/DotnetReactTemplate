@@ -1,0 +1,102 @@
+/* General Layout Styles */
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    margin-left: 250px; /* Space for sidebar when open */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #2c3e50; /* Dark sidebar */
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); /* Sidebar hidden by default */
+}
+
+/* Sidebar open */
+.sidebar.open {
+    transform: translateX(0); /* Sidebar visible */
+}
+
+/* Sidebar closed */
+.sidebar.closed {
+    transform: translateX(-100%); /* Sidebar hidden */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: fixed;
+        transform: translateX(-100%); /* Initially hidden on mobile */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Slide in when open */
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .sidebar-toggle-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .sidebar-toggle-button:hover {
+        background-color: #34495e;
+    }
+}
+
+/* Sidebar Menu Styles */
+.sidebar-menu-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #34495e;
+    cursor: pointer;
+}
+
+.sidebar-menu-item:hover {
+    background-color: #34495e;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.user-info {
+    margin-left: 10px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
